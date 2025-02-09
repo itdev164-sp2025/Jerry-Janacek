@@ -26,7 +26,7 @@ module.exports = {
         spaceId: `6lxw4lh7aavp`,
         accessToken: `jRO-E9_dThPurODD-pxRqkSaC_3p7nKiOTmlhIsJhdE`
       }
-    }
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
