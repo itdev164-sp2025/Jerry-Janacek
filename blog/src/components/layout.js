@@ -7,10 +7,11 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 
 import Header from "./header"
 import "./layout.css"
+import { Gray } from "./themes/Gray"
 
 const Content = styled.div`
   margin: 0 auto;
@@ -35,7 +36,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <ThemeProvider theme={Gray}>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <Content>
         <main>{children}</main>
@@ -45,7 +46,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatbyjs.com">Gatsby</a>
         </Footer>
       </Content>
-    </>
+    </ThemeProvider>
   )
 }
 
