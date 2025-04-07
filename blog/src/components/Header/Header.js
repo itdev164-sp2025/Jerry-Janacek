@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 import { H1 } from "../Heading"
+import { Section } from "../Section"
 
 const StyledHeader = styled.header`
   margin: 0 auto;
@@ -26,6 +27,9 @@ const Header = ({ siteTitle }) => (
         {siteTitle}
       </H1>
     </StyledLink>
+    <Section width={1/12}>
+      Search
+    </Section>
   </StyledHeader>
 )
 
