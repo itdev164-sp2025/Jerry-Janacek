@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { Heading } from "rebass";
 
 const BaseHeading = ({ children, ...rest }) =>
-    <heading {...rest}>
+    <Heading {...rest}>
         { children }
-    </heading>
+    </Heading>
 
-    BaseHeading.PropTypes = {
+    BaseHeading.propTypes = {
         children: PropTypes.node.isRequired
     }
 
