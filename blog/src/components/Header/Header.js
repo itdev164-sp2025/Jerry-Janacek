@@ -1,9 +1,11 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { Search } from 'styled-icons/feather'
 
 import { H1 } from "../Heading"
 import { Section } from "../Section"
+import { IconButton } from "../Button"
 
 const StyledHeader = styled.header`
   margin: 0 auto;
@@ -22,15 +24,18 @@ const StyledLink = styled(Link)`
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
+    <Section width={11/12}>
     <StyledLink to="/">
       <H1>
         {siteTitle}
       </H1>
-    </StyledLink>
+    </StyledLink>   
+    </Section>
     <Section width={1/12}>
-      Search
+      <IconButton icon={<Search />} />
     </Section>
   </StyledHeader>
+
 )
 
 export { Header }
