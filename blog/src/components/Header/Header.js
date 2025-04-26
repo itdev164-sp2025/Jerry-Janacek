@@ -1,7 +1,7 @@
 import * as React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled, { ThemeConsumer } from "styled-components"
-import { Search } from 'styled-icons/feather'
 import { Flex } from "rebass"
 
 import { H1 } from "../Heading"
@@ -18,7 +18,6 @@ const StyledHeader = styled.header`
 `
 
 const StyledLink = styled(Link)`
-  font-size: var(--font-sm);
   text-decoration: none;
   margin: 0 10px;
   color: ${({ theme }) => theme.variants.header.primary.color};
@@ -50,7 +49,7 @@ const Header = ({ siteTitle }) => (
 
       <Section width={1/12} flex flexDirection="column" justifyContent="center">
         <ThemeConsumer>
-          {theme => <image src={theme.images.mainHeaderImage} />}
+          {theme => <Image src={theme.images.mainHeaderImage} />}
         </ThemeConsumer>
       </Section>
 
@@ -59,10 +58,8 @@ const Header = ({ siteTitle }) => (
 
           <Title>
             <StyledLink to="/">
-              <H1>
-                {siteTitle}
-              </H1>
-            </StyledLink>   
+              {siteTitle}       
+            </StyledLink>
           </Title>
 
           <MediaQuery>
@@ -73,9 +70,18 @@ const Header = ({ siteTitle }) => (
 
           <SearchButton variant='contrast' />
         </Nav>
-      </Section>
+      </Section>  
+
     </Section>
   </StyledHeader>
 )
+
+Header.propTypes = {
+  siteTitle: PropTypes.string
+}
+
+Header.defaultProps = {
+  siteTitle: ""
+}
 
 export { Header }

@@ -11,7 +11,7 @@ import * as styles from "../components/index.module.css"
 const Grid = styled(Box)`
   display: grid;
   margin: 0;
-  --w 280px;
+  --w: 280px;
   --n: 2;
   gap: var(--size-gap);
   grid-template-columns: repeat(
@@ -22,26 +22,30 @@ const Grid = styled(Box)`
   margin-top: var(--size-gap);
 `
 
-const IndexPage = ({ data }) => (
+const IndexPage = ( {data} ) => (
   <Layout>
     <Grid>
-      {
-        data.allContentfulBlogPost.edges.map(edge => (
-          <Card key={edge.node.id}>
-            <Link to={edge.node.slug}>{edge.node.title}
-              <GatsbyImage image={edge.node.heroImage.gatsbyImageData} />
-            </Link>
+    {
+      data.allContentfulBlogPost.edges.map(edge => (
+        <Card key={edge.node.id}>
 
-            <Heading>
-              {edge.node.title}
-            </Heading>
-            
-            <div>
-              {edge.node.body.childMarkdownRemark.excerpt}
-            </div>
-          </Card>
-        ))
-      }
+          <Link to={edge.node.slug}>
+            <GatsbyImage
+              image={edge.node.heroImage.gatsbyImageData}
+            />
+          </Link>
+
+          <Heading>
+            {edge.node.title}
+          </Heading>
+
+          <div>
+            {edge.node.body.childMarkdownRemark.excerpt}
+          </div>
+          
+        </Card>
+      ))
+    }
     </Grid>
   </Layout>
 )
